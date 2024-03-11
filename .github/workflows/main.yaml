@@ -1,0 +1,8 @@
+name: main
+on:
+  push:
+jobs:
+  nodejs:
+    if: ${{ contains(github.event.repository.name, 'maven') }}
+    uses: bescribanobegue/maven-test-workflow/.github/workflows/springboot-ci.yaml@main
+    secrets: inherit
