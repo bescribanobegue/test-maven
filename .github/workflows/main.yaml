@@ -10,5 +10,5 @@ on:
 jobs:
   nodejs:
     if: ${{ contains(github.event.repository.name, 'maven') }}
-    uses: bescribanobegue/maven-test-workflow/.github/workflows/springboot-ci.yaml@feature/test
+    uses: bescribanobegue/test-maven/.github/workflows/springboot-ci.yaml@feature/test
     secrets: inherit
