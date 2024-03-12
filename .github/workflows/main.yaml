@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - 'releases/**'
+      - 'feature/**'
 
 
 jobs:
