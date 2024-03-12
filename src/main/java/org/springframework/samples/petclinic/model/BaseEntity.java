@@ -31,7 +31,6 @@ public class BaseEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Integer id;
-    private Integer test = 3;
 
     public Integer getId() {
         return id;
