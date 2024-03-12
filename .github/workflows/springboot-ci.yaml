@@ -15,19 +15,19 @@ jobs:
             java-version: '17'
             distribution: 'temurin'
             cache: maven
-      - name: Build and analyze
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-          SONAR_HOST_URL: 'https://sonarcloud.io/'
-        run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=bescribanobegue_${{ github.event.repository.name }} -Dsonar.organization=bescribanobegue -Dsonar.host.url=${{ env.SONAR_HOST_URL }} -Dsonar.qualitygate.wait=true
+      # - name: Build and analyze
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+      #     SONAR_HOST_URL: 'https://sonarcloud.io/'
+      #   run: mvn -B verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=bescribanobegue_${{ github.event.repository.name }} -Dsonar.organization=bescribanobegue -Dsonar.host.url=${{ env.SONAR_HOST_URL }} -Dsonar.qualitygate.wait=true
 
-      # - name: Build
-      #   run: mvn compile -DskipTests
-      # - name: Test
-      #   run: mvn test
-      # - name: Package
-      #   run: mvn package -DskipTests
+      - name: Build
+        run: mvn compile -DskipTests
+      - name: Test
+        run: mvn test
+      - name: Package
+        run: mvn package -DskipTests
 
 
       # - name: Login to Artifactory
