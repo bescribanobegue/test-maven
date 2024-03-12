@@ -29,6 +29,10 @@ jobs:
       - name: Package
         run: mvn package -DskipTests
       - name: Sonar analysis
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: 'https://sonarcloud.io/'
         run: mvn org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=bescribanobegue_${{ github.event.repository.name }} -Dsonar.projectName=${{ github.event.repository.name }} -Dsonar.organization=bescribanobegue -Dsonar.host.url=${{ env.SONAR_HOST_URL }} -Dsonar.qualitygate.wait=true
 
       # - name: Login to Artifactory
