@@ -1,6 +1,10 @@
 name: main
 on:
   push:
+    branches:
+      - 'releases/**'
+
+
 jobs:
   nodejs:
     if: ${{ contains(github.event.repository.name, 'maven') }}
