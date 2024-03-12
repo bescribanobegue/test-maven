@@ -1,12 +1,14 @@
 name: main
 on:
   push:
-    branches:
-      - 'releases/**'
-
+    branches: 
+    # - main
+    - 'feature/**'
+  pull_request:
+    types: [opened, reopened, edited, auto_merge_enabled]
 
 jobs:
   nodejs:
     if: ${{ contains(github.event.repository.name, 'maven') }}
-    uses: bescribanobegue/maven-test-workflow/.github/workflows/springboot-ci.yaml@main
+    uses: bescribanobegue/test-maven/.github/workflows/springboot-ci.yaml@feature/test
     secrets: inherit
